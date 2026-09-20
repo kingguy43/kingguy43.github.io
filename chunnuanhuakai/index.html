@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>春暖花开-自然风景摄影与春季旅游指南</title>
+    <meta name="description" content="春暖花开是专注于春季自然风光摄影与旅游攻略的资讯平台，提供各地赏花地点推荐、摄影技巧分享及春季出行指南，助您捕捉最美的春日时光。">
+    <meta name="keywords" content="春暖花开,春季旅游,赏花攻略,自然摄影,春天去哪里">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #81c784;
+            --accent-color: #ff6f00;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f9fbf9;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://picsum.photos/seed/spring_flowers/1920/1080.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn Up 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: #1b5e20;
+            transform: translateY(-2px);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -17px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+
+        .view-all {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background-color: #e8f5e9;
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            width: fit-content;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .card-excerpt {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #888;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        /* Feature Section */
+        .feature-section {
+            background-color: #e8f5e9;
+            border-radius: var(--radius);
+            padding: 60px 40px;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .feature-image {
+            flex: 1;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .feature-text {
+            flex: 1;
+        }
+
+        .feature-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .feature-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .check-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .check-list li::before {
+            content: '✔';
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Guide List */
+        .guide-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .guide-item {
+            display: flex;
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        .guide-item:hover {
+            transform: scale(1.01);
+        }
+
+        .guide-icon {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .guide-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .guide-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #263238;
+            color: #cfd8dc;
+            padding: 60px 20px 20px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #37474f;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .feature-section {
+                flex-direction: column;
+                padding: 30px;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">春暖花开 <span>Spring Guide</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#destinations">赏花指南</a></li>
+                    <li><a href="#photography">摄影技巧</a></li>
+                    <li><a href="#travel">春季旅游</a></li>
+                </ul>
+            </nav>
+            <button class="search-btn" aria-label="搜索">🔍</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>春暖花开，不负韶华</h1>
+                <p>探索国内最美的赏花胜地，掌握春季摄影秘籍，规划您的完美踏青之旅。</p>
+                <a href="#destinations" class="cta-button">开始探索</a>
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Trending Destinations -->
+            <section id="destinations">
+                <div class="section-header">
+                    <h2 class="section-title">热门赏花地</h2>
+                    <a href="#" class="view-all">查看全部 &rarr;</a>
+                </div>
+                <div class="grid-3">
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/peony/400/300.jpg" alt="牡丹花海" class="card-image">
+                        <div class="card-content">
+                            <span class="card-tag">洛阳</span>
+                            <h3 class="card-title">洛阳牡丹：国色天香的最佳观赏期</h3>
+                            <p class="card-excerpt">四月洛阳，牡丹盛开。了解最佳赏花路线，避开人流高峰，体验千年古都的春日盛景。</p>
+                            <div class="card-footer">
+                                <span>更新于 2天前</span>
+                                <span>👁 1.2k</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/cherry/400/300.jpg" alt="樱花大道" class="card-image">
+                        <div class="card-content">
+                            <span class="card-tag">武汉</span>
+                            <h3 class="card-title">武汉大学樱花：校园里的粉色浪漫</h3>
+                            <p class="card-excerpt">武大樱花节虽已落幕，但园内依旧芬芳。为您整理赏樱历史与摄影构图技巧。</p>
+                            <div class="card-footer">
+                                <span>更新于 5天前</span>
+                                <span>👁 8.5k</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <img src="https://picsum.photos/seed/tea/400/300.jpg" alt="茶山春景" class="card-image">
+                        <div class="card-content">
+                            <span class="card-tag">婺源</span>
+                            <h3 class="card-title">婺源油菜花：中国最美的乡村画卷</h3>
+                            <p class="card-excerpt">三月的婺源，金黄的油菜花与白墙黛瓦交相辉映。自驾游攻略与住宿推荐。</p>
+                            <div class="card-footer">
+                                <span>更新于 1周前</span>
+                                <span>👁 3.4k</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Feature Guide -->
+            <section class="feature-section">
+                <div class="feature-image">
+                    <img src="https://picsum.photos/seed/flower_field/600/400.jpg" alt="广阔的田野花海">
+                </div>
+                <div class="feature-text">
+                    <h2>春季摄影：如何拍出大片？</h2>
+                    <p>春暖花开的季节是摄影爱好者的黄金时期。光线柔和，色彩丰富，但如何利用自然光拍出通透感？</p>
+                    <ul class="check-list">
+                        <li>利用清晨和傍晚的“黄金时刻”拍摄逆光花卉。</li>
+                        <li>尝试使用大光圈虚化背景，突出主体。</li>
+                        <li>注意色彩的对比与和谐，避免杂乱。</li>
+                        <li>随身携带偏振镜，消除叶片上的反光。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Travel Tips List -->
+            <section id="travel">
+                <div class="section-header">
+                    <h2 class="section-title">春季出行贴士</h2>
+                </div>
+                <div class="guide-list">
+                    <div class="guide-item">
+                        <div class="guide-icon">☂️</div>
+                        <div class="guide-content">
+                            <h3>防雨防潮准备</h3>
+                            <p>春季多雨，气温变化大。建议携带折叠伞、雨衣及防滑鞋，衣物以速干材质为主。</p>
+                        </div>
+                    </div>
+                    <div class="guide-item">
+                        <div class="guide-icon">🌿</div>
+                        <div class="guide-content">
+                            <h3>文明赏花，不折枝</h3>
+                            <p>爱护花草，不在花丛中攀爬、摇晃。请将垃圾随身带走，共同维护自然美景。</p>
+                        </div>
+                    </div>
+                    <div class="guide-item">
+                        <div class="guide-icon">🚗</div>
+                        <div class="guide-content">
+                            <h3>错峰出行攻略</h3>
+                            <p>热门赏花地周末人流密集。尽量选择工作日前往，或早起前往公园，体验更佳。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 15px;">春暖花开</div>
+                <p style="font-size: 0.9rem; line-height: 1.8;">专注为您提供最实用的春季旅游资讯、摄影技巧与赏花指南，让每一次出行都充满惊喜。</p>
+            </div>
+            <div class="footer-col">
+                <h4>热门分类</h4>
+                <ul>
+                    <li><a href="#">赏花攻略</a></li>
+                    <li><a href="#">春季摄影</a></li>
+                    <li><a href="#">周边游推荐</a></li>
+                    <li><a href="#">装备清单</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">网站简介</a></li>
+                    <li><a href="#">联系合作</a></li>
+                    <li><a href="#">免责声明</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">新浪微博</a></li>
+                    <li><a href="#">小红书</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 春暖花开春季旅游指南 版权所有</p>
+        </div>
+    </footer>
+
+</body>
+</html>
