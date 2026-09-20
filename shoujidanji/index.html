@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="手机单机斗地主 - 提供经典单机斗地主游戏下载、玩法攻略、卡牌技巧及智能AI对战体验，无需网络，随时随地畅玩。">
+    <meta name="keywords" content="手机单机斗地主,斗地主单机版,斗地主游戏下载,斗地主AI,单机斗地主攻略">
+    <title>手机单机斗地主 - 无网络畅玩经典斗地主与卡牌技巧指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #2c3e50;
+            --accent-color: #f1c40f;
+            --bg-color: #f4f6f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #7f8c8d;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+        }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .btn-download {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+        }
+
+        .btn-download:hover {
+            background-color: #c0392b;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+            background: var(--bg-color);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: #ffecec;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Game Modes / Screenshots */
+        .game-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .mode-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .mode-card {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            box-shadow: var(--shadow);
+        }
+
+        .mode-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .mode-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .mode-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: white;
+        }
+
+        .mode-overlay h3 {
+            font-size: 1.2rem;
+        }
+
+        /* Strategy / Guide */
+        .strategy {
+            padding: 60px 0;
+            background: var(--bg-color);
+        }
+
+        .guide-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .guide-item {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .guide-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .guide-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .guide-link {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .guide-link::after {
+            content: '→';
+            margin-left: 5px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+
+        details summary {
+            font-weight: bold;
+            cursor: pointer;
+            list-style: none;
+            position: relative;
+            padding-right: 30px;
+            color: var(--secondary-color);
+        }
+
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details summary::after {
+            content: '+';
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 1.5rem;
+            line-height: 1;
+            color: var(--primary-color);
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+
+        details p {
+            margin-top: 10px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: #ecf0f1;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .mode-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                🃏 <span>单机斗地主</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#features" class="active">游戏特色</a></li>
+                    <li><a href="#gameplay">游戏模式</a></li>
+                    <li><a href="#guide">技巧攻略</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-download">立即下载</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-badges">
+                <span class="badge">无需联网</span>
+                <span class="badge">智能AI</span>
+                <span class="badge">经典玩法</span>
+            </div>
+            <h1>手机单机斗地主<br>随时随地享受牌局乐趣</h1>
+            <p>收录最新单机版斗地主游戏，无需消耗流量，拥有丰富AI对手、个性化皮肤及经典赛事模式，让您在碎片时间也能酣畅淋漓。</p>
+            <div style="display: flex; justify-content: center; gap: 15px;">
+                <a href="#" class="btn-download" style="background: white; color: var(--primary-color);">下载安卓版</a>
+                <a href="#" class="btn-download" style="background: transparent; border: 2px solid white;">查看教程</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>为什么选择单机斗地主</h2>
+                <p>专为手机端优化的卡牌对战体验</p>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="icon-box">📶</div>
+                    <h3>零流量消耗</h3>
+                    <p>所有游戏逻辑完全本地运行，无需联网即可开始对局，彻底告别流量焦虑。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">🧠</div>
+                    <h3>智能AI对手</h3>
+                    <p>内置高智商AI系统，具备记牌、算牌能力，模拟真实玩家心理，挑战您的牌技极限。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">🎨</div>
+                    <h3>精美界面设计</h3>
+                    <p>高清卡牌纹理，流畅的动画效果，支持多种主题皮肤切换，视觉体验极佳。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box">🏆</div>
+                    <h3>排位晋级系统</h3>
+                    <p>完善的天梯机制，从青铜到王者，记录您的每一场胜利，与全国玩家一较高下。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gameplay" class="game-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>多种游戏模式</h2>
+                <p>满足不同场景下的娱乐需求</p>
+            </div>
+            <div class="mode-grid">
+                <div class="mode-card">
+                    <img src="https://picsum.photos/seed/doudizhu1/600/400" alt="经典对战">
+                    <div class="mode-overlay">
+                        <h3>经典双人对战</h3>
+                        <p>1V1极速对决，考验手速与策略，适合单人消磨时间。</p>
+                    </div>
+                </div>
+                <div class="mode-card">
+                    <img src="https://picsum.photos/seed/doudizhu2/600/400" alt="三人对战">
+                    <div class="mode-overlay">
+                        <h3>欢乐三人对战</h3>
+                        <p>1V1V1斗地主，出牌变化更多，博弈更加激烈刺激。</p>
+                    </div>
+                </div>
+                <div class="mode-card">
+                    <img src="https://picsum.photos/seed/doudizhu3/600/400" alt="闯关模式">
+                    <div class="mode-overlay">
+                        <h3>闯关挑战赛</h3>
+                        <p>设定连胜目标，完成每日挑战获取丰厚奖励。</p>
+                    </div>
+                </div>
+                <div class="mode-card">
+                    <img src="https://picsum.photos/seed/doudizhu4/600/400" alt="限时赛">
+                    <div class="mode-overlay">
+                        <h3>限时抢地主</h3>
+                        <p>倒计时抢地主玩法，节奏紧凑，考验反应速度。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="guide" class="strategy">
+        <div class="container">
+            <div class="section-title">
+                <h2>实用技巧与攻略</h2>
+                <p>助您从新手快速进阶</p>
+            </div>
+            <div class="guide-list">
+                <article class="guide-item">
+                    <h3>记牌技巧</h3>
+                    <p>记住关键牌如王、2、A和炸弹。了解场上剩余炸弹数量，能极大提高出牌准确率。</p>
+                    <a href="#" class="guide-link">查看详细记牌方法</a>
+                </article>
+                <article class="guide-item">
+                    <h3>出牌顺序</h3>
+                    <p>先手尽量出大牌控制节奏，后手则要根据对手出牌选择接牌或过牌，避免给对手送分。</p>
+                    <a href="#" class="guide-link">学习出牌策略</a>
+                </article>
+                <article class="guide-item">
+                    <h3>心态管理</h3>
+                    <p>单机游戏虽无真人互动，但保持冷静的心态至关重要。切勿因连续输牌而冲动出牌。</p>
+                    <a href="#" class="guide-link">心态建设指南</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>常见问题解答</h2>
+                <p>关于手机单机斗地主游戏的疑问</p>
+            </div>
+            <div class="faq-container">
+                <details>
+                    <summary>手机单机斗地主需要联网吗？</summary>
+                    <p>大部分单机版斗地主游戏采用离线模式，无需联网即可进行对局。但部分功能如皮肤购买、排行榜同步可能需要网络支持。</p>
+                </details>
+                <details>
+                    <summary>游戏卡顿怎么办？</summary>
+                    <p>建议清理手机后台程序，关闭不必要的动画特效，或降低游戏内的画质设置，以获得更流畅的体验。</p>
+                </details>
+                <details>
+                    <summary>如何保存游戏进度？</summary>
+                    <p>游戏通常会自动保存您的金币数量、等级和皮肤。请确保手机存储空间充足且未开启“清除数据”选项。</p>
+                </details>
+                <details>
+                    <summary>AI太难了，有简单模式吗？</summary>
+                    <p>绝大多数单机斗地主游戏都提供难度选择，您可以在设置中选择“休闲模式”或“简单难度”来降低AI的智商。</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="color: #bdc3c7; font-size: 0.9rem; line-height: 1.8;">
+                        专注于提供优质的单机手机游戏资源，致力于打造最纯粹、最流畅的斗地主娱乐体验。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">游戏下载</a></li>
+                        <li><a href="#">最新版本</a></li>
+                        <li><a href="#">更新日志</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">新手教程</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">用户协议</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 手机单机斗地主资源站 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
