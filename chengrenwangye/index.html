@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="成人网页小游戏提供海量高自由度、互动性强且无需下载的在线娱乐体验。包含模拟经营、角色扮演、策略解谜等多种类型，支持手机与电脑浏览器直接游玩。">
+    <meta name="keywords" content="成人网页小游戏,在线小游戏,模拟经营游戏,互动游戏,浏览器游戏">
+    <title>成人网页小游戏-海量在线互动娱乐与模拟体验</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #ffffff;
+            --text-muted: #b2bec3;
+            --accent-hot: #ff7675;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: var(--spacing-md) 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-main);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            font-size: 0.9rem;
+        }
+
+        .btn-login {
+            padding: 6px 16px;
+            border: 1px solid var(--primary-color);
+            border-radius: 20px;
+            color: var(--primary-color);
+        }
+
+        .btn-login:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            padding: 80px 0;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(108, 92, 231, 0.15) 0%, rgba(18, 18, 18, 0) 70%);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* 分类导航 */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .cat-btn {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            padding: 10px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .cat-btn:hover, .cat-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* 游戏网格 */
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title h2 {
+            font-size: 1.5rem;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .section-title h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .see-more {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: 60px;
+        }
+
+        .game-card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .card-cover {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background-color: #2d3436;
+        }
+
+        .card-content {
+            padding: var(--spacing-md);
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 8px;
+        }
+
+        .mini-tag {
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+        }
+
+        .mini-tag.hot {
+            background: rgba(255, 118, 117, 0.2);
+            color: var(--accent-hot);
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 48px;
+            height: 48px;
+            background-color: rgba(108, 92, 231, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .play-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+            margin-left: 3px;
+        }
+
+        .game-card:hover .play-btn {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            pointer-events: auto;
+        }
+
+        /* 热门榜单 */
+        .ranking-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .ranking-item {
+            display: flex;
+            background-color: var(--card-bg);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .rank-num {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.1);
+            width: 30px;
+            text-align: center;
+        }
+
+        .rank-num.top-3 {
+            color: var(--accent-hot);
+            background: rgba(255, 118, 117, 0.1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .rank-thumb {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .rank-info {
+            flex: 1;
+        }
+
+        .rank-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .rank-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* 下载提示区 */
+        .download-bar {
+            background: linear-gradient(90deg, #2d3436 0%, #1e1e1e 100%);
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 60px;
+        }
+
+        .download-bar h3 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .download-bar p {
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-md);
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #5649c0;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #0d0d0d;
+            padding: 60px 0 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.85rem;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-wrapper {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+
+            nav ul {
+                gap: var(--spacing-md);
+                font-size: 0.85rem;
+            }
+
+            .game-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-md);
+            }
+            
+            .ranking-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .rank-num {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container nav-wrapper">
+        <div class="logo">互动娱乐</div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">最新上架</a></li>
+                <li><a href="#">热门排行</a></li>
+                <li><a href="#">模拟经营</a></li>
+                <li><a href="#">角色扮演</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <a href="#" class="btn-login">登录 / 注册</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-tags">
+                <span class="tag">无需下载</span>
+                <span class="tag">浏览器直开</span>
+                <span class="tag">高清画质</span>
+            </div>
+            <h1>成人网页小游戏<br>沉浸式互动体验</h1>
+            <p>海量精选互动娱乐内容，打破次元壁的虚拟世界。在这里，您可以自由探索、策略经营或体验丰富剧情，所有游戏均在浏览器中流畅运行。</p>
+            <a href="#games" class="btn-primary">开始探索</a>
+        </div>
+    </section>
+
+    <section class="container" id="games">
+        <div class="category-nav">
+            <button class="cat-btn active">全部推荐</button>
+            <button class="cat-btn">模拟经营</button>
+            <button class="cat-btn">角色扮演</button>
+            <button class="cat-btn">视觉小说</button>
+            <button class="cat-btn">策略解谜</button>
+        </div>
+
+        <div class="section-title">
+            <h2>热门推荐</h2>
+            <a href="#" class="see-more">查看更多 &rarr;</a>
+        </div>
+
+        <div class="game-grid">
+            <!-- 游戏卡片 1 -->
+            <article class="game-card">
+                <div style="position: relative;">
+                    <img src="https://picsum.photos/seed/game1/300/200" alt="游戏封面" class="card-cover">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">午夜公寓：秘密日记</h3>
+                    <div class="card-tags">
+                        <span class="mini-tag">视觉小说</span>
+                        <span class="mini-tag hot">热门</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>互动剧情</span>
+                        <span>1.2万人玩过</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 游戏卡片 2 -->
+            <article class="game-card">
+                <div style="position: relative;">
+                    <img src="https://picsum.photos/seed/game2/300/200" alt="游戏封面" class="card-cover">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">都市夜行者：抉择</h3>
+                    <div class="card-tags">
+                        <span class="mini-tag">角色扮演</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>自由探索</span>
+                        <span>8,500人玩过</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 游戏卡片 3 -->
+            <article class="game-card">
+                <div style="position: relative;">
+                    <img src="https://picsum.photos/seed/game3/300/200" alt="游戏封面" class="card-cover">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">庄园管家：日常</h3>
+                    <div class="card-tags">
+                        <span class="mini-tag">模拟经营</span>
+                        <span class="mini-tag hot">新游</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>经营养成</span>
+                        <span>5,200人玩过</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 游戏卡片 4 -->
+            <article class="game-card">
+                <div style="position: relative;">
+                    <img src="https://picsum.photos/seed/game4/300/200" alt="游戏封面" class="card-cover">
+                    <div class="play-btn">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">奇幻学院：试炼</h3>
+                    <div class="card-tags">
+                        <span class="mini-tag">RPG</span>
+                    </div>
+                    <div class="card-meta">
+                        <span>策略战斗</span>
+                        <span>3,100人玩过</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="section-title">
+            <h2>本周飙升榜</h2>
+            <a href="#" class="see-more">查看完整榜单 &rarr;</a>
+        </div>
+
+        <div class="ranking-list">
+            <div class="ranking-item">
+                <span class="rank-num top-3">1</span>
+                <img src="https://picsum.photos/seed/rank1/100/100" alt="排名1" class="rank-thumb">
+                <div class="rank-info">
+                    <h3 class="rank-title">魅影都市：无限</h3>
+                    <p class="rank-desc">最新上线的开放世界互动体验，打破常规规则。</p>
+                </div>
+                <span class="mini-tag hot">Top 1</span>
+            </div>
+
+            <div class="ranking-item">
+                <span class="rank-num top-3">2</span>
+                <img src="https://picsum.photos/seed/rank2/100/100" alt="排名2" class="rank-thumb">
+                <div class="rank-info">
+                    <h3 class="rank-title">秘密花园：种植</h3>
+                    <p class="rank-desc">温馨治愈的模拟种植与互动养成游戏。</p>
+                </div>
+                <span class="mini-tag">Top 2</span>
+            </div>
+
+            <div class="ranking-item">
+                <span class="rank-num top-3">3</span>
+                <img src="https://picsum.photos/seed/rank3/100/100" alt="排名3" class="rank-thumb">
+                <div class="rank-info">
+                    <h3 class="rank-title">午夜列车：未知</h3>
+                    <p class="rank-desc">惊悚悬疑风格的视觉小说，剧情反转不断。</p>
+                </div>
+                <span class="mini-tag">Top 3</span>
+            </div>
+        </div>
+
+        <div class="download-bar">
+            <h3>体验更佳的移动端版本</h3>
+            <p>支持全平台适配，随时随地开启您的互动娱乐之旅。</p>
+            <a href="#" class="btn-primary">下载 APP</a>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo">互动娱乐</div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">
+                    专注于提供高品质的在线互动娱乐内容，打造最纯粹的浏览器游戏体验。
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>游戏分类</h4>
+                <ul>
+                    <li><a href="#">模拟经营</a></li>
+                    <li><a href="#">角色扮演</a></li>
+                    <li><a href="#">视觉小说</a></li>
+                    <li><a href="#">策略解谜</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">如何开始游戏</a></li>
+                    <li><a href="#">常见问题解答</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">网站介绍</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">广告合作</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 互动娱乐平台 版权所有 | 仅供18岁及以上成年人浏览</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+                                                        </html>
