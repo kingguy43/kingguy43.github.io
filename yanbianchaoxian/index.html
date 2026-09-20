@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="延边朝鲜族网站提供延边朝鲜族自治州全方位信息服务，涵盖朝鲜族文化传承、民俗风情、特色美食、旅游景点、双语资讯及社区互动，致力于传播和弘扬朝鲜族传统文化。">
+    <meta name="keywords" content="延边朝鲜族网站,延边朝鲜族自治州,朝鲜族文化,朝鲜族美食,延边旅游,双语资讯,民俗风情">
+    <title>延边朝鲜族网站 - 朝鲜族文化传承与生活服务平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c5f2d; /* 延边绿 */
+            --secondary-color: #e6b800; /* 韩服金 */
+            --bg-color: #f8f9fa;
+            --text-main: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            padding: 5px 15px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            font-size: 14px;
+            width: 150px;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(44, 95, 45, 0.9), rgba(44, 95, 45, 0.7)), url('https://picsum.photos/seed/jangma/1600/900') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(230, 184, 0, 0.4);
+        }
+
+        /* 快捷分类 */
+        .categories {
+            padding: 40px 0;
+            background-color: var(--white);
+            margin-top: -40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 10;
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .cat-item {
+            text-align: center;
+            padding: 20px 10px;
+            border-radius: var(--border-radius);
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        .cat-item:hover {
+            background-color: #f0f7f0;
+        }
+
+        .cat-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .cat-name {
+            font-weight: bold;
+            color: var(--text-main);
+        }
+
+        .cat-desc {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        /* 内容区布局 */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            padding: 40px 0;
+        }
+
+        /* 最新资讯 */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: var(--primary-color);
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 12px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-img {
+            height: 180px;
+            background-color: #eee;
+            overflow: hidden;
+        }
+
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .news-card:hover .news-img img {
+            transform: scale(1.05);
+        }
+
+        .news-body {
+            padding: 20px;
+        }
+
+        .news-tag {
+            display: inline-block;
+            font-size: 12px;
+            padding: 2px 8px;
+            background-color: #e8f5e9;
+            color: var(--primary-color);
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .news-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .news-meta {
+            font-size: 12px;
+            color: #999;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 侧边栏 */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .widget {
+            background: var(--white);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .hot-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .hot-list li:last-child {
+            border-bottom: none;
+        }
+
+        .hot-rank {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-style: italic;
+        }
+
+        .hot-link {
+            font-size: 14px;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px;
+        }
+
+        .hot-link:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .culture-banner {
+            width: 100%;
+            height: 250px;
+            background: url('https://picsum.photos/seed/kimchi/400/300') center/cover;
+            border-radius: var(--border-radius);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .culture-banner::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            border-radius: var(--border-radius);
+        }
+
+        .culture-text {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            text-align: center;
+        }
+
+        /* 文化特色展示 */
+        .features-section {
+            background-color: #fff;
+            padding: 60px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .feature-card {
+            padding: 30px;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #f0f7f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+            font-size: 32px;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature-text {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #2b2b2b;
+            color: #ccc;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col p {
+            font-size: 14px;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 13px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .cat-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* 简化处理，移动端隐藏菜单 */
+            }
+            .header-inner {
+                justify-content: space-between;
+            }
+            .hero {
+                height: 400px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .cat-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span>延边</span>朝鲜族网站
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">文化传承</a></li>
+                    <li><a href="#">风土人情</a></li>
+                    <li><a href="#">特色美食</a></li>
+                    <li><a href="#">双语资讯</a></li>
+                    <li><a href="#">旅游攻略</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索延边文化...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首屏 Banner -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>延边朝鲜族网站 - 感受朝鲜族文化的独特魅力</h1>
+            <p>汇聚延边朝鲜族自治州最地道的人文风情、传统美食与民俗活动。在这里，探索长白山脚下的文化瑰宝，体验双语交流的便捷服务。</p>
+            <a href="#" class="btn btn-primary">探索更多文化</a>
+        </div>
+    </section>
+
+    <!-- 快捷分类 -->
+    <div class="container">
+        <section class="categories">
+            <div class="cat-grid">
+                <div class="cat-item">
+                    <span class="cat-icon">🎎</span>
+                    <div class="cat-name">传统服饰</div>
+                    <div class="cat-desc">韩服与朝鲜族服饰鉴赏</div>
+                </div>
+                <div class="cat-item">
+                    <span class="cat-icon">🍲</span>
+                    <div class="cat-name">特色美食</div>
+                    <div class="cat-desc">打糕、冷面、泡菜制作</div>
+                </div>
+                <div class="cat-item">
+                    <span class="cat-icon">🎭</span>
+                    <div class="cat-name">民俗艺术</div>
+                    <div class="cat-desc">农乐舞、长鼓舞介绍</div>
+                </div>
+                <div class="cat-item">
+                    <span class="cat-icon">📜</span>
+                    <div class="cat-name">语言文字</div>
+                    <div class="cat-desc">朝鲜语学习与双语文章</div>
+                </div>
+                <div class="cat-item">
+                    <span class="cat-icon">🏔️</span>
+                    <div class="cat-name">旅游风光</div>
+                    <div class="cat-desc">长白山与延边美景</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 主要内容区 -->
+    <div class="container main-layout">
+        <!-- 左侧内容 -->
+        <main>
+            <!-- 最新资讯 -->
+            <section class="news-section">
+                <div class="section-header">
+                    <h2 class="section-title">最新资讯</h2>
+                    <a href="#" style="font-size: 14px; color: var(--primary-color);">查看更多 &gt;</a>
+                </div>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <div class="news-img">
+                            <img src="https://picsum.photos/seed/food/400/300" alt="朝鲜族美食">
+                        </div>
+                        <div class="news-body">
+                            <span class="news-tag">美食文化</span>
+                            <h3 class="news-title"><a href="#">延边冷面：夏日消暑的绝佳选择</a></h3>
+                            <div class="news-meta">
+                                <span>2023-10-24</span>
+                                <span>2,304 阅读</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-img">
+                            <img src="https://picsum.photos/seed/dance/400/300" alt="农乐舞">
+                        </div>
+                        <div class="news-body">
+                            <span class="news-tag">民俗活动</span>
+                            <h3 class="news-title"><a href="#">朝鲜族农乐舞入选人类非物质文化遗产</a></h3>
+                            <div class="news-meta">
+                                <span>2023-10-22</span>
+                                <span>5,891 阅读</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-img">
+                            <img src="https://picsum.photos/seed/festival/400/300" alt="端午祭">
+                        </div>
+                        <div class="news-body">
+                            <span class="news-tag">传统节日</span>
+                            <h3 class="news-title"><a href="#">体验端午祭：延边朝鲜族的传统习俗</a></h3>
+                            <div class="news-meta">
+                                <span>2023-10-20</span>
+                                <span>1,156 阅读</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="news-card">
+                        <div class="news-img">
+                            <img src="https://picsum.photos/seed/clothes/400/300" alt="传统服饰">
+                        </div>
+                        <div class="news-body">
+                            <span class="news-tag">服饰文化</span>
+                            <h3 class="news-title"><a href="#">韩服与朝鲜族服饰的历史演变</a></h3>
+                            <div class="news-meta">
+                                <span>2023-10-18</span>
+                                <span>3,421 阅读</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 文化特色介绍 -->
+            <section class="features-section" style="margin-top: 50px;">
+                <div class="section-header">
+                    <h2 class="section-title">朝鲜族文化特色</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🍚</div>
+                        <h3 class="feature-title">饮食文化</h3>
+                        <p class="feature-text">以米饭为主食，喜食狗肉、狗肉汤（延边特色），搭配泡菜、酱汤，注重调味品的搭配。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💃</div>
+                        <h3 class="feature-title">歌舞艺术</h3>
+                        <p class="feature-text">能歌善舞，长鼓舞、象帽舞、顶水舞等传统舞蹈动作优美，节奏感强。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏠</div>
+                        <h3 class="feature-title">建筑风格</h3>
+                        <p class="feature-text">传统房屋多为“火炕”设计，屋顶坡度大，窗户纸糊在木框外，具有独特的保暖功能。</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 右侧侧边栏 -->
+        <aside>
+            <!-- 热门排行 -->
+            <div class="widget">
+                <h3 class="section-title" style="font-size: 18px; border:none; padding:0; margin-bottom: 15px;">热门排行</h3>
+                <ul class="hot-list">
+                    <li>
+                        <span class="hot-rank">1</span>
+                        <a href="#" class="hot-link">延边朝鲜族自治州旅游全攻略</a>
+                    </li>
+                    <li>
+                        <span class="hot-rank">2</span>
+                        <a href="#" class="hot-link">正宗朝鲜族辣白菜的家庭做法</a>
+                    </li>
+                    <li>
+                        <span class="hot-rank">3</span>
+                        <a href="#" class="hot-link">长白山天池最佳观赏季节</a>
+                    </li>
+                    <li>
+                        <span class="hot-rank">4</span>
+                        <a href="#" class="hot-link">朝鲜族礼仪：做客与待客之道</a>
+                    </li>
+                    <li>
+                        <span class="hot-rank">5</span>
+                        <a href="#" class="hot-link">延边大学周边美食地图</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 文化推广 Banner -->
+            <div class="widget">
+                <div class="culture-banner">
+                    <div class="culture-text">
+                        <h3>传承非遗文化</h3>
+                        <p style="font-size: 14px; margin-top: 5px;">让世界听见延边声音</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 双语小知识 -->
+            <div class="widget">
+                <h3 class="section-title" style="font-size: 18px; border:none; padding:0; margin-bottom: 15px;">双语小知识</h3>
+                <div style="font-size: 14px; color: #555; line-height: 1.8;">
+                    <p><strong>你好</strong> (An-nyeong-ha-se-yo)</p>
+                    <p><strong>谢谢</strong> (Gam-sa-ham-ni-da)</p>
+                    <p><strong>再见</strong> (An-nyeong-he-gi-si-yo)</p>
+                    <p style="margin-top: 10px; font-size: 12px; color: #999;">欢迎来到延边，用语言搭建友谊的桥梁。</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <span>延边</span>朝鲜族网站
+                    </div>
+                    <p>致力于保护和传承延边朝鲜族优秀传统文化，为国内外朋友提供一个了解延边、走进延边的窗口。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">网站简介</a></li>
+                        <li><a href="#">编辑团队</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">加入我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>内容栏目</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">文化传承</a></li>
+                        <li><a href="#">民俗风情</a></li>
+                        <li><a href="#">特色美食</a></li>
+                        <li><a href="#">双语资讯</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <p style="font-size: 14px; margin-bottom: 10px;">微信公众号：延边文化</p>
+                    <p style="font-size: 14px;">新浪微博：@延边朝鲜族文化</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 延边朝鲜族网站 版权所有 | 吉ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
