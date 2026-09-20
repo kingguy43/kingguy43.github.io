@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>性价比高笔记本电脑-高性价比笔记本选购指南与推荐</title>
+    <meta name="description" content="本站提供2024年性价比高笔记本电脑的深度评测、选购指南及热门机型推荐，涵盖轻薄本、全能本及游戏本，帮助您在预算有限的情况下找到最适合的办公与娱乐设备。">
+    <meta name="keywords" content="性价比高笔记本电脑,笔记本电脑推荐,轻薄本推荐,高性价比笔记本,学生笔记本">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --secondary-color: #64748b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #475569;
+            --border-color: #e2e8f0;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --radius: 8px;
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-sub);
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--text-sub);
+            max-width: 700px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #dbeafe;
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Main Layout */
+        main {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 24px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Grid System */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        /* Product Card */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            background-color: #e2e8f0;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: var(--spacing-md);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-category {
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.4;
+        }
+
+        .card-specs {
+            font-size: 0.875rem;
+            color: var(--text-sub);
+            margin-bottom: var(--spacing-md);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px;
+        }
+
+        .spec-item span {
+            display: block;
+        }
+
+        .spec-label {
+            color: #94a3b8;
+            font-size: 0.75rem;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ef4444;
+        }
+
+        .price small {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--text-sub);
+        }
+
+        .btn-link {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .guide-item {
+            padding: var(--spacing-md);
+            border: 1px dashed var(--border-color);
+            border-radius: var(--radius);
+        }
+
+        .guide-item h3 {
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.1rem;
+        }
+
+        .guide-item p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        /* Comparison Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-top: var(--spacing-lg);
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-table th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: var(--spacing-lg);
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                display: none; /* Simplified mobile nav for single file */
+            }
+
+            .header-inner {
+                padding: 0 var(--spacing-sm);
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <a href="#" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            笔记本优选
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#recommend" class="active">高性价比推荐</a></li>
+                <li><a href="#guide">选购指南</a></li>
+                <li><a href="#comparison">参数对比</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="cta-button">查看最新榜单</a>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>性价比高笔记本电脑</h1>
+        <p>拒绝高价低配，为您精选2024年预算有限时的最佳生产力工具。无论是日常办公、学习还是轻度娱乐，我们都有符合您需求的省钱之选。</p>
+        <div class="hero-tags">
+            <span class="tag">2024年热销</span>
+            <span class="tag">办公首选</span>
+            <span class="tag">学生党必看</span>
+            <span class="tag">性能均衡</span>
+        </div>
+    </section>
+
+    <!-- Product Recommendation -->
+    <section id="recommend">
+        <h2 class="section-title">热门高性价比机型推荐</h2>
+        <div class="grid-3">
+            <!-- Product 1 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/laptop1/400/250" alt="轻薄办公本" class="card-image">
+                <div class="card-body">
+                    <div class="card-category">轻薄办公本</div>
+                    <h3 class="card-title">AirBook Pro 14英寸</h3>
+                    <div class="card-specs">
+                        <div class="spec-item"><span class="spec-label">处理器</span><span>Intel i5-1340P</span></div>
+                        <div class="spec-item"><span class="spec-label">内存</span><span>16GB DDR4</span></div>
+                        <div class="spec-item"><span class="spec-label">硬盘</span><span>512GB SSD</span></div>
+                        <div class="spec-item"><span class="spec-label">重量</span><span>1.25kg</span></div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">¥4299<small>/起</small></div>
+                        <a href="#" class="btn-link">查看详情 &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 2 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/laptop2/400/250" alt="全能本" class="card-image">
+                <div class="card-body">
+                    <div class="card-category">全能本</div>
+                    <h3 class="card-title">全能战士 X15</h3>
+                    <div class="card-specs">
+                        <div class="spec-item"><span class="spec-label">处理器</span><span>R7-7840HS</span></div>
+                        <div class="spec-item"><span class="spec-label">显卡</span><span>Radeon 780M</span></div>
+                        <div class="spec-item"><span class="spec-label">屏幕</span><span>2.5K 120Hz</span></div>
+                        <div class="spec-item"><span class="spec-label">接口</span><span>全功能C口</span></div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">¥4999<small>/起</small></div>
+                        <a href="#" class="btn-link">查看详情 &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Product 3 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/laptop3/400/250" alt="游戏本" class="card-image">
+                <div class="card-body">
+                    <div class="card-category">入门游戏本</div>
+                    <h3 class="card-title">暗影战神 G6</h3>
+                    <div class="card-specs">
+                        <div class="spec-item"><span class="spec-label">处理器</span><span>i5-13500HX</span></div>
+                        <div class="spec-item"><span class="spec-label">显卡</span><span>RTX 4050</span></div>
+                        <div class="spec-item"><span class="spec-label">屏幕</span><span>165Hz 高刷</span></div>
+                        <div class="spec-item"><span class="spec-label">散热</span><span>双风扇四热管</span></div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price">¥5999<small>/起</small></div>
+                        <a href="#" class="btn-link">查看详情 &rarr;</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Buying Guide -->
+    <section id="guide" style="margin-top: 60px;">
+        <h2 class="section-title">如何挑选性价比高笔记本电脑</h2>
+        <div class="guide-section">
+            <p style="margin-bottom: 24px; color: var(--text-sub);">选购性价比高的笔记本，关键在于“需求匹配”而非单纯追求参数堆砌。以下三个核心维度建议您重点关注：</p>
+            <div class="guide-grid">
+                <div class="guide-item">
+                    <h3>1. 明确使用场景</h3>
+                    <p>如果您主要用于文档处理、网页浏览和视频会议，选择高能效比的轻薄本即可，无需花费高昂预算购买大显卡。如果是设计、编程或玩3A游戏，则需要关注处理器性能和显卡规格。</p>
+                </div>
+                <div class="guide-item">
+                    <h3>2. 关注核心配置</h3>
+                    <p>对于预算有限的情况，优先保证<strong>内存（建议16GB起步）</strong>和<strong>硬盘（建议512GB SSD）</strong>的容量。这两项决定了电脑未来的使用寿命和运行流畅度，比单纯提升CPU频率更划算。</p>
+                </div>
+                <div class="guide-item">
+                    <h3>3. 警惕品牌溢价</h3>
+                    <p>同配置下，大品牌机型往往比二线品牌贵30%-50%。通过电商平台自营或官方授权店购买时，可以关注促销活动，许多老款旗舰机型在降价后往往拥有极高的性价比。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section id="comparison" style="margin-top: 60px;">
+        <h2 class="section-title">主流价位段配置对比</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>配置等级</th>
+                    <th>适用人群</th>
+                    <th>核心配置建议</th>
+                    <th>参考价格区间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>入门级</strong></td>
+                    <td>学生网课、文档处理</td>
+                    <td>锐龙R5 / i3, 8GB/16GB, 256GB/512GB SSD</td>
+                    <td>¥3000 - ¥4500</td>
+                </tr>
+                <tr>
+                    <td><strong>主流级</strong></td>
+                    <td>办公主力、轻度设计</td>
+                    <td>锐龙R7 / i5-12代以上, 16GB, 512GB/1TB SSD</td>
+                    <td>¥4500 - ¥7000</td>
+                </tr>
+                <tr>
+                    <td><strong>高性能级</strong></td>
+                    <td>专业剪辑、大型游戏</td>
+                    <td>i7/R7 / H系列, 16GB/32GB, 1TB SSD, RTX独显</td>
+                    <td>¥7000 - ¥12000</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" style="margin-top: 60px;">
+        <h2 class="section-title">常见问题 (FAQ)</h2>
+        <div class="guide-section">
+            <div class="guide-item" style="border: none; padding: 12px 0;">
+                <h3>Q1: 预算4000元左右有哪些值得买的笔记本？</h3>
+                <p>A: 在这个价位，建议优先考虑搭载AMD锐龙5处理器或Intel第12/13代i5的机型。虽然品牌知名度可能不如一线大厂，但配置通常非常均衡，适合学生和普通办公用户。</p>
+            </div>
+            <div class="guide-item" style="border: none; padding: 12px 0;">
+                <h3>Q2: 买新不买旧，还是买当季新款？</h3>
+                <p>A: 对于追求性价比的用户，当季新款往往价格较高。如果预算有限，关注上一代旗舰机型在促销时的价格往往能获得更好的性能释放和屏幕素质。</p>
+            </div>
+            <div class="guide-item" style="border: none; padding: 12px 0;">
+                <h3>Q3: 轻薄本和全能本的区别是什么？</h3>
+                <p>A: 轻薄本主打便携和长续航，性能较弱；全能本在轻薄机身内塞入了独显，兼顾了图形处理能力和便携性，适合有轻度游戏或修图需求但不想背着游戏本的人。</p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col" style="flex: 2; min-width: 250px;">
+                <h4>笔记本优选</h4>
+                <p style="font-size: 0.9rem; max-width: 300px;">
+                    专注提供客观、实用的笔记本电脑选购建议与评测。帮助用户在复杂的电子产品市场中，做出最理性的消费决策。
+                </p>
+            </div>
+            <div class="footer-col" style="flex: 1; min-width: 150px;">
+                <h4>选购指南</h4>
+                <ul>
+                    <li><a href="#">轻薄本推荐</a></li>
+                    <li><a href="#">游戏本推荐</a></li>
+                    <li><a href="#">MacBook 对比</a></li>
+                    <li><a href="#">二手笔记本</a></li>
+                </ul>
+            </div>
+            <div class="footer-col" style="flex: 1; min-width: 150px;">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">投稿合作</a></li>
+                    <li><a href="#">免责声明</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2024 笔记本优选网 版权所有 | 本站内容仅供参考，请以实际购买时的配置为准。
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
