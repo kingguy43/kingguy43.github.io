@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>携程网北京酒店预订 - 北京热门住宿攻略与酒店优惠</title>
+    <meta name="description" content="携程网北京酒店预订频道，为您提供北京地区海量酒店信息。涵盖五星级酒店、经济型酒店、民宿客栈及特色主题酒店。包含酒店详情、实时房价、用户评价及北京旅游攻略，助您轻松预订心仪住宿，享受便捷舒适的旅行体验。">
+    <meta name="keywords" content="携程网, 北京酒店预订, 北京住宿, 北京酒店价格, 北京旅游酒店, 携程北京">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --primary-hover: #0052a3;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --bg-body: #f5f7fa;
+            --bg-card: #ffffff;
+            --border-color: #e5e6eb;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+            --radius: 8px;
+            --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-bar {
+            background-color: #f0f2f5;
+            font-size: 12px;
+            color: var(--text-secondary);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .top-bar .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .main-header {
+            padding: 20px 0;
+        }
+
+        .main-header .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: normal;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+            padding: 8px 0;
+            position: relative;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .user-actions button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .user-actions button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0066cc 0%, #00c6ff 100%);
+            padding: 60px 0;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            background: white;
+            padding: 24px;
+            border-radius: var(--radius);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: flex-end;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+            color: var(--text-main);
+            background: #fafafa;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: white;
+        }
+
+        .search-btn {
+            background-color: #ff9900;
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            min-width: 120px;
+            transition: background 0.2s;
+        }
+
+        .search-btn:hover {
+            background-color: #e68a00;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 40px var(--spacing-unit);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -14px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .view-more {
+            font-size: 14px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .view-more:hover {
+            text-decoration: underline;
+        }
+
+        /* Categories Grid */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+            margin-bottom: 50px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: #e6f0fa;
+        }
+
+        .cat-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            background-color: #f0f7ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        .category-card h3 {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Hotel List */
+        .hotel-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        .hotel-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+            transition: box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hotel-card:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .hotel-img {
+            width: 100%;
+            height: 220px;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .hotel-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hotel-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .hotel-content {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hotel-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .hotel-location {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .hotel-features {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .hotel-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .price {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-label {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .price-val {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff6b00;
+        }
+
+        .price-val small {
+            font-size: 12px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .rating-score {
+            color: #ff6b00;
+            font-weight: bold;
+        }
+
+        /* Beijing Highlights */
+        .spot-section {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-top: 40px;
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .spot-item {
+            flex: 1;
+            min-width: 280px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            height: 200px;
+            cursor: pointer;
+        }
+
+        .spot-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .spot-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .spot-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            color: white;
+        }
+
+        .spot-info h4 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+
+        .spot-info p {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 50px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--radius);
+            margin-bottom: 12px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2b2b2b;
+            color: #ccc;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 13px;
+            color: #888;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links, .user-actions {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .search-box {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .search-btn {
+                width: 100%;
+            }
+            .hotel-list {
+                grid-template-columns: 1fr;
+            }
+            .spot-section {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <span>北京本地服务：退改签无忧 · 24小时客服热线 1010-6666</span>
+            <span>登录 / 注册</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="main-header">
+            <div class="container">
+                <a href="#" class="logo">
+                    携程旅行网
+                    <span>北京酒店预订</span>
+                </a>
+                <nav class="nav-links">
+                    <a href="#" class="active">酒店</a>
+                    <a href="#">机票</a>
+                    <a href="#">火车票</a>
+                    <a href="#">度假</a>
+                    <a href="#">门票</a>
+                </nav>
+                <div class="user-actions">
+                    <button>企业差旅</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>探索北京，从这里开始</h1>
+            <p>预订北京酒店，享受优质住宿体验</p>
+            
+            <div class="search-box">
+                <div class="form-group">
+                    <label>目的地</label>
+                    <input type="text" value="北京" readonly>
+                </div>
+                <div class="form-group">
+                    <label>入住日期</label>
+                    <input type="date">
+                </div>
+                <div class="form-group">
+                    <label>离店日期</label>
+                    <input type="date">
+                </div>
+                <div class="form-group">
+                    <label>入住人数</label>
+                    <select>
+                        <option>1位成人</option>
+                        <option selected>2位成人</option>
+                        <option>3位成人</option>
+                        <option>4位成人</option>
+                        <option>5位成人及以上</option>
+                    </select>
+                </div>
+                <button class="search-btn">搜索酒店</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        
+        <!-- Categories -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">北京住宿分类</h2>
+                <a href="#" class="view-more">查看更多</a>
+            </div>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="cat-icon">🏨</div>
+                    <h3>五星级酒店</h3>
+                </div>
+                <div class="category-card">
+                    <div class="cat-icon">🛏️</div>
+                    <h3>商务酒店</h3>
+                </div>
+                <div class="category-card">
+                    <div class="cat-icon">💰</div>
+                    <h3>经济型酒店</h3>
+                </div>
+                <div class="category-card">
+                    <div class="cat-icon">🏡</div>
+                    <h3>民宿客栈</h3>
+                </div>
+                <div class="category-card">
+                    <div class="cat-icon">🛋️</div>
+                    <h3>精品酒店</h3>
+                </div>
+                <div class="category-card">
+                    <div class="cat-icon">🏨</div>
+                    <h3>度假村</h3>
+                </div>
+                <div class="category-card">
+                    <div class="cat-icon">🏷️</div>
+                    <h3>主题酒店</h3>
+                </div>
+                <div class="category-card">
+                    <div class="cat-icon">📍</div>
+                    <h3>公寓短租</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended Hotels -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">北京热门酒店推荐</h2>
+                <a href="#" class="view-more">查看全部</a>
+            </div>
+            <div class="hotel-list">
+                <!-- Hotel Card 1 -->
+                <article class="hotel-card">
+                    <div class="hotel-img">
+                        <img src="https://picsum.photos/seed/hotel1/400/300" alt="北京王府井文华东方酒店">
+                        <span class="hotel-badge">5钻</span>
+                    </div>
+                    <div class="hotel-content">
+                        <h3 class="hotel-name">北京王府井文华东方酒店</h3>
+                        <div class="hotel-location">
+                            <span>📍</span> 东城区王府井大街
+                        </div>
+                        <div class="hotel-features">
+                            <span class="feature-item">✓ 含双早</span>
+                            <span class="feature-item">✓ 停车免费</span>
+                            <span class="feature-item">✓ 游泳池</span>
+                        </div>
+                        <div class="hotel-footer">
+                            <div class="price">
+                                <span class="price-label">¥1680起</span>
+                                <span class="price-val">¥1680<small>/晚</small></span>
+                            </div>
+                            <div class="rating">
+                                <span class="rating-score">9.8</span>
+                                <span>分</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Hotel Card 2 -->
+                <article class="hotel-card">
+                    <div class="hotel-img">
+                        <img src="https://picsum.photos/seed/hotel2/400/300" alt="北京华尔道夫酒店">
+                        <span class="hotel-badge">5钻</span>
+                    </div>
+                    <div class="hotel-content">
+                        <h3 class="hotel-name">北京华尔道夫酒店</h3>
+                        <div class="hotel-location">
+                            <span>📍</span> 东城区金宝街
+                        </div>
+                        <div class="hotel-features">
+                            <span class="feature-item">✓ 含双早</span>
+                            <span class="feature-item">✓ 高端SPA</span>
+                            <span class="feature-item">✓ 早餐丰富</span>
+                        </div>
+                        <div class="hotel-footer">
+                            <div class="price">
+                                <span class="price-label">¥2450起</span>
+                                <span class="price-val">¥2450<small>/晚</small></span>
+                            </div>
+                            <div class="rating">
+                                <span class="rating-score">9.6</span>
+                                <span>分</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Hotel Card 3 -->
+                <article class="hotel-card">
+                    <div class="hotel-img">
+                        <img src="https://picsum.photos/seed/hotel3/400/300" alt="北京瑰丽酒店">
+                        <span class="hotel-badge">5钻</span>
+                    </div>
+                    <div class="hotel-content">
+                        <h3 class="hotel-name">北京瑰丽酒店</h3>
+                        <div class="hotel-location">
+                            <span>📍</span> 朝阳区亮马桥
+                        </div>
+                        <div class="hotel-features">
+                            <span class="feature-item">✓ 含双早</span>
+                            <span class="feature-item">✓ 健身房</span>
+                            <span class="feature-item">✓ 景观房</span>
+                        </div>
+                        <div class="hotel-footer">
+                            <div class="price">
+                                <span class="price-label">¥1980起</span>
+                                <span class="price-val">¥1980<small>/晚</small></span>
+                            </div>
+                            <div class="rating">
+                                <span class="rating-score">9.5</span>
+                                <span>分</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Hotel Card 4 -->
+                <article class="hotel-card">
+                    <div class="hotel-img">
+                        <img src="https://picsum.photos/seed/hotel4/400/300" alt="北京诺金酒店">
+                        <span class="hotel-badge">5钻</span>
+                    </div>
+                    <div class="hotel-content">
+                        <h3 class="hotel-name">北京诺金酒店</h3>
+                        <div class="hotel-location">
+                            <span>📍</span> 东城区王府井
+                        </div>
+                        <div class="hotel-features">
+                            <span class="feature-item">✓ 含双早</span>
+                            <span class="feature-item">✓ 国礼餐厅</span>
+                            <span class="feature-item">✓ 地理位置佳</span>
+                        </div>
+                        <div class="hotel-footer">
+                            <div class="price">
+                                <span class="price-label">¥2100起</span>
+                                <span class="price-val">¥2100<small>/晚</small></span>
+                            </div>
+                            <div class="rating">
+                                <span class="rating-score">9.4</span>
+                                <span>分</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Hotel Card 5 -->
+                <article class="hotel-card">
+                    <div class="hotel-img">
+                        <img src="https://picsum.photos/seed/hotel5/400/300" alt="北京柏悦酒店">
+                        <span class="hotel-badge">5钻</span>
+                    </div>
+                    <div class="hotel-content">
+                        <h3 class="hotel-name">北京柏悦酒店</h3>
+                        <div class="hotel-location">
+                            <span>📍</span> 朝阳区亮马桥
+                        </div>
+                        <div class="hotel-features">
+                            <span class="feature-item">✓ 含双早</span>
+                            <span class="feature-item">✓ 高端设施</span>
+                            <span class="feature-item">✓ 24小时服务</span>
+                        </div>
+                        <div class="hotel-footer">
+                            <div class="price">
+                                <span class="price-label">¥2200起</span>
+                                <span class="price-val">¥2200<small>/晚</small></span>
+                            </div>
+                            <div class="rating">
+                                <span class="rating-score">9.7</span>
+                                <span>分</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Hotel Card 6 -->
+                <article class="hotel-card">
+                    <div class="hotel-img">
+                        <img src="https://picsum.photos/seed/hotel6/400/300" alt="北京四季酒店">
+                        <span class="hotel-badge">5钻</span>
+                    </div>
+                    <div class="hotel-content">
+                        <h3 class="hotel-name">北京四季酒店</h3>
+                        <div class="hotel-location">
+                            <span>📍</span> 朝阳区亮马桥
+                        </div>
+                        <div class="hotel-features">
+                            <span class="feature-item">✓ 含双早</span>
+                            <span class="feature-item">✓ 豪华泳池</span>
+                            <span class="feature-item">✓ 美食体验</span>
+                        </div>
+                        <div class="hotel-footer">
+                            <div class="price">
+                                <span class="price-label">¥1950起</span>
+                                <span class="price-val">¥1950<small>/晚</small></span>
+                            </div>
+                            <div class="rating">
+                                <span class="rating-score">9.6</span>
+                                <span>分</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Beijing Travel Spots -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">北京热门景点住宿推荐</h2>
+            </div>
+            <div class="spot-section">
+                <div class="spot-item">
+                    <img src="https://picsum.photos/seed/forbidden/400/300" alt="故宫">
+                    <div class="spot-info">
+                        <h4>故宫博物院</h4>
+                        <p>住在王府井、东华门附近，步行可达</p>
+                    </div>
+                </div>
+                <div class="spot-item">
+                    <img src="https://picsum.photos/seed/temple/400/300" alt="天坛">
+                    <div class="spot-info">
+                        <h4>天坛公园</h4>
+                        <p>住在天坛东门、幸福大街附近，交通便利</p>
+                    </div>
+                </div>
+                <div class="spot-item">
+                    <img src="https://picsum.photos/seed/wall/400/300" alt="长城">
+                    <div class="spot-info">
+                        <h4>八达岭长城</h4>
+                        <p>建议入住八达岭长城脚下，方便第二天游览</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="section-header">
+                <h2 class="section-title">常见问题</h2>
+            </div>
+            
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">北京酒店预订需要提前多久？</div>
+                <div class="faq-answer">建议至少提前1-2周预订，特别是旅游旺季（如五一、十一、春节），热门地段的高端酒店非常抢手，提前预订能确保有房且价格更优。</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">北京有哪些区域适合初次到访的游客？</div>
+                <div class="faq-answer">东城区（王府井、东华门）和西城区（前门、西单）地理位置极佳，靠近天安门、故宫等核心景点，交通非常便利，是初次到访游客的首选区域。</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">如何查看酒店的真实评价？</div>
+                <div class="faq-answer">在酒店详情页，您可以查看“住客点评”板块。建议重点关注近期的差评和中评，以及关于隔音、卫生、服务态度等方面的具体描述。</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">预订时可以选择无窗房间吗？</div>
+                <div class="faq-answer">在筛选条件中，您可以选择“窗景类型”，勾选“无窗”或“景观房”来筛选符合条件的房间。但部分商务型酒店可能主要提供无窗房型。</div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">携程简介</a></li>
+                    <li><a href="#">管理团队</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">媒体报道</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>客户服务</h4>
+                <ul>
+                    <li><a href="#">帮助中心</a></li>
+                    <li><a href="#">退改政策</a></li>
+                    <li><a href="#">投诉建议</a></li>
+                    <li><a href="#">联系方式</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>合作专区</h4>
+                <ul>
+                    <li><a href="#">商家入驻</a></li>
+                    <li><a href="#">联盟营销</a></li>
+                    <li><a href="#">广告服务</a></li>
+                    <li><a href="#">API接口</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">新浪微博</a></li>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">官方APP下载</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023-2024 携程旅行网 Ctrip.com International, Ltd. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ Toggle Logic
+        function toggleFaq(element) {
+            // Close other items
+            const allFaqs = document.querySelectorAll('.faq-item');
+            allFaqs.forEach(item => {
+                if (item !== element) {
+                    item.classList.remove('active');
+                }
+            });
+            // Toggle current item
+            element.classList.toggle('active');
+        }
+
+        // Set default dates (Today and Tomorrow)
+        document.addEventListener('DOMContentLoaded', () => {
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+
+            const formatDate = (date) => {
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            };
+
+            const checkinInput = document.querySelector('input[type="date"]:first-of-type');
+            const checkoutInput = document.querySelector('input[type="date"]:last-of-type');
+
+            if (checkinInput) checkinInput.value = formatDate(today);
+            if (checkoutInput) checkoutInput.value = formatDate(tomorrow);
+        });
+    </script>
+</body>
+  </html>
